@@ -1,0 +1,41 @@
+#Indicamos la version del archivo docker compose
+version: "3"
+#Declaramos los servicios que se van iniciar e incluir en el docker
+services:
+  frontend:
+    container_name: frontend
+    restart: always
+    build:
+      context: ./frontend/
+      dockerfile: frontend.Dockerfile
+    ports:
+      - 80:80
+    networks:
+      - interna
+  backend:
+    container_name: backend
+    restart: always
+    build:
+      context: ./backend/build/
+    ports:
+      - 8080:8080
+    networks:
+      - interna
+
+  mongo:
+    container_name: mongo-backend
+    image: mongo:5.0
+    volumes:
+      - ~/db/:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGO_INITDB_DATABASE=cocina
+    restart: always
+    networks:
+      - interna 
+networks:
+  interna:
+    external: false
