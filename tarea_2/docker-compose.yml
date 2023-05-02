@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ~/universidad/dbs/tarea2/:/var/lib/postgresql/dart
+    ports:
+      - "5442:5432"
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: dart
+    networks:
+      - dart-net
+  backend:
+    container_name: backend
+    restart: always
+    volumes:
+      - ./backend/:/app
+      - /app/.dart_tool
+    build:
+      context: ./backend/
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    networks:
+      - dart-net
+
+networks:
+  dart-net:
+    external: false

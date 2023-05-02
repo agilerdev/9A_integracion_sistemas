@@ -8,6 +8,7 @@ part 'cocinero.g.dart';
 @freezed
 class Cocinero with _$Cocinero {
   const factory Cocinero({
+    // ignore: invalid_annotation_target
     @JsonKey(name: '_id', fromJson: idFromJson, toJson: idToJson)
         required String id,
     required String nombre,
