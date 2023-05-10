@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ~/universidad/dbs/tarea3/:/var/lib/postgresql/dart
+    ports:
+      - "5442:5432"
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: dart
+    networks:
+      - dart-net
+  backend:
+    image: agiler1699/tarea3:paso4
+    container_name: backend
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    networks:
+      - dart-net
+
+networks:
+  dart-net:
+    external: false
+
+
+#dart run stormberry migrate --port=5432 --db=dart --password=admin --db=dart --host=localhost --username=postgres --no-ssl --apply-changes
