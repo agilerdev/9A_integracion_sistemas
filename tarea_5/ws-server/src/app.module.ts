@@ -5,6 +5,8 @@ import { EstudianteModule } from './estudiante/estudiante.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { MensajesWsModule } from './mensajes-ws/mensajes-ws.module';
+import { CocineroModule } from './cocinero/cocinero.module';
+import { MensajesCocineroModule } from './mensajes-cocinero/mensajes-cocinero.module';
 
 @Module({
   imports: [EstudianteModule,
@@ -19,7 +21,9 @@ import { MensajesWsModule } from './mensajes-ws/mensajes-ws.module';
     autoLoadEntities: true,
     synchronize: true,
   }),
-  MensajesWsModule
+  // MensajesWsModule,
+  CocineroModule,
+  MensajesCocineroModule
   ],
   controllers: [AppController],
   providers: [AppService],

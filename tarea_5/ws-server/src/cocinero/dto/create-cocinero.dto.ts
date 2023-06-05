@@ -1,11 +1,10 @@
-import { IsString, IsNotEmpty } from "class-validator";
-
+import { IsString, IsNotEmpty, IsNumber } from "class-validator";
 export class CreateCocineroDto {
     @IsString()
     @IsNotEmpty()
     nombre:string;
 
-    @IsString()
+    @IsNumber()
     @IsNotEmpty()
     sueldoBasico:number;
 }
