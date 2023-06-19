@@ -1,0 +1,68 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Estudiante {
+  id: ID!
+  identificacion: String!
+  nombre: String!
+  direccion: String!
+  telefono: [String!]
+  tipo: Int!
+  estado: Boolean!
+}
+
+type Cocinero {
+  id: ID!
+  nombre: String!
+  sueldoBasico: Float!
+  estado: Boolean!
+}
+
+type Query {
+  estudiantes: [Estudiante!]!
+  estudiante(id: ID!): Estudiante!
+  cocineros: [Cocinero!]!
+  cocinero(id: ID!): Cocinero!
+}
+
+type Mutation {
+  createEstudiante(createEstudianteInput: CreateEstudianteInput!): Estudiante!
+  updateEstudiante(updateEstudianteInput: UpdateEstudianteInput!): Estudiante!
+  removeEstudiante(id: ID!): Estudiante!
+  createCocinero(createCocineroInput: CreateCocineroInput!): Cocinero!
+  updateCocinero(updateCocineroInput: UpdateCocineroInput!): Cocinero!
+  removeCocinero(id: ID!): Cocinero!
+}
+
+input CreateEstudianteInput {
+  identificacion: String!
+  nombre: String!
+  direccion: String!
+  telefono: [String!]
+  tipo: Int!
+  estado: Boolean!
+}
+
+input UpdateEstudianteInput {
+  identificacion: String
+  nombre: String
+  direccion: String
+  telefono: [String!]
+  tipo: Int
+  estado: Boolean
+  id: ID!
+}
+
+input CreateCocineroInput {
+  nombre: String!
+  sueldoBasico: Float!
+  estado: Boolean!
+}
+
+input UpdateCocineroInput {
+  nombre: String
+  sueldoBasico: Float
+  estado: Boolean
+  id: ID!
+}
