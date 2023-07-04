@@ -1,4 +1,4 @@
-export interface IPassenger extends Document {
-  name: string;
-  email: string;
+export interface IPrestamista extends Document {
+  nombre: string;
+  identificacion: string;
 }

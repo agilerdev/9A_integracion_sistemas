@@ -1,20 +1,20 @@
 import { Module } from '@nestjs/common';
-import { PASSENGER } from './../common/models/models';
+import { PRESTAMISTA } from './../common/models/models';
 import { MongooseModule } from '@nestjs/mongoose';
-import { PassengerController } from './passenger.controller';
-import { PassengerService } from './passenger.service';
-import { PassengerSchema } from './schema/passenger.schema';
+import { PrestamistaController } from './passenger.controller';
+import { PrestamistaService } from './passenger.service';
+import { PrestamistaSchema } from './schema/passenger.schema';
 
 @Module({
   imports: [
     MongooseModule.forFeatureAsync([
       {
-        name: PASSENGER.name,
-        useFactory: () => PassengerSchema,
+        name: PRESTAMISTA.name,
+        useFactory: () => PrestamistaSchema,
       },
     ]),
   ],
-  controllers: [PassengerController],
-  providers: [PassengerService],
+  controllers: [PrestamistaController],
+  providers: [PrestamistaService],
 })
-export class PassengerModule {}
+export class PrestamistaModule {}

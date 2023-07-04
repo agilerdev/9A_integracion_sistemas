@@ -1,42 +1,39 @@
 export enum RabbitMQ {
-  UserQueue = 'users',
-  PassengerQueue = 'passengers',
-  FlightQueue = 'flights',
-  StudentQueue = 'students'
+  IdiomaQueue = 'idiomas',
+  PrestamistaQueue = 'prestamistas',
+  CocineroQueue = 'cocineros',
+  StudentQueue = 'pacientes',
 }
 
-export enum UserMSG {
-  CREATE = 'CREATE_USER',
-  FIND_ALL = 'FIND_USERS',
-  FIND_ONE = 'FIND_USER',
-  UPDATE = 'UPDATE_USER',
-  DELETE = 'DELETE_USER',
-  VALID_USER = 'VALID_USER',
+export enum UserMsg {
+  CREATE = 'CREATE_IDIOMA',
+  FIND_ALL = 'FIND_IDIOMAS',
+  FIND_ONE = 'FIND_IDIOMA',
+  UPDATE = 'UPDATE_IDIOMA',
+  DELETE = 'DELETE_IDIOMA',
+  VALID_USER = 'VALID_IDIOMA',
 }
 
-export enum StudentMSG {
-  CREATE = 'CREATE_STUDENT',
-  FIND_ALL = 'FIND_STUDENTS',
-  FIND_ONE = 'FIND_STUDENT',
-  UPDATE = 'UPDATE_STUDENT',
-  DELETE = 'DELETE_STUDENT',
-  VALID_USER = 'VALID_STUDENT',
+export enum StudentMsg {
+  CREATE = 'CREATE_PACIENTE',
+  FIND_ALL = 'FIND_PACIENTES',
+  FIND_ONE = 'FIND_PACIENTE',
+  UPDATE = 'UPDATE_PACIENTE',
+  DELETE = 'DELETE_PACIENTE',
 }
-
 
 export enum PassengerMSG {
-  CREATE = 'CREATE_PASSENGER',
-  FIND_ALL = 'FIND_PASSENGERS',
-  FIND_ONE = 'FIND_PASSENGER',
-  UPDATE = 'UPDATE_PASSENGER',
-  DELETE = 'DELETE_PASSENGER',
+  CREATE = 'CREATE_PRESTAMISTAS',
+  FIND_ALL = 'FIND_PRESTAMISTAS',
+  FIND_ONE = 'FIND_PRESTAMISTAS',
+  UPDATE = 'UPDATE_PRESTAMISTAS',
+  DELETE = 'DELETE_PRESTAMISTAS',
 }
 
-export enum FlightMSG {
-  CREATE = 'CREATE_FLIGHT',
-  FIND_ALL = 'FIND_FLIGHTS',
-  FIND_ONE = 'FIND_FLIGHT',
-  UPDATE = 'UPDATE_FLIGHT',
-  DELETE = 'DELETE_FLIGHT',
-  ADD_PASSENGER = 'ADD_PASSENGER',
+export enum CocineroMSG {
+  CREATE = 'CREATE_COCINERO',
+  FIND_ALL = 'FIND_COCINEROS',
+  FIND_ONE = 'FIND_COCINERO',
+  UPDATE = 'UPDATE_COCINERO',
+  DELETE = 'DELETE_COCINERO',
 }

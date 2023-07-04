@@ -1,5 +1,5 @@
 import { MongooseModule } from '@nestjs/mongoose';
-import { PassengerModule } from './passenger/passenger.module';
+import { PrestamistaModule } from './passenger/passenger.module';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -12,7 +12,7 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true,
     }),
     MongooseModule.forRoot(process.env.URI_MONGODB),
-    PassengerModule,
+    PrestamistaModule,
   ],
   controllers: [AppController],
   providers: [AppService],

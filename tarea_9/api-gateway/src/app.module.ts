@@ -4,7 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { PassengerModule } from './passenger/passenger.module';
-import { FlightModule } from './flight/flight.module';
+import { CocineroModule } from './cocinero/cocinero.module';
 import { AuthModule } from './auth/auth.module';
 import { StudentModule } from './student/student.module';
 
@@ -16,9 +16,9 @@ import { StudentModule } from './student/student.module';
     }),
     UserModule,
     PassengerModule,
-    FlightModule,
+    CocineroModule,
     AuthModule,
-    StudentModule
+    StudentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -16,7 +16,7 @@ export class ClientProxySuperFlights {
       transport: Transport.RMQ,
       options: {
         urls: this.config.get('AMQP_URL'),
-        queue: RabbitMQ.UserQueue,
+        queue: RabbitMQ.IdiomaQueue,
       },
     });
   }
@@ -26,7 +26,7 @@ export class ClientProxySuperFlights {
       transport: Transport.RMQ,
       options: {
         urls: this.config.get('AMQP_URL'),
-        queue: RabbitMQ.PassengerQueue,
+        queue: RabbitMQ.PrestamistaQueue,
       },
     });
   }
@@ -40,12 +40,12 @@ export class ClientProxySuperFlights {
     });
   }
 
-  clientProxyFlights(): ClientProxy {
+  clientProxyCocineros(): ClientProxy {
     return ClientProxyFactory.create({
       transport: Transport.RMQ,
       options: {
         urls: this.config.get('AMQP_URL'),
-        queue: RabbitMQ.FlightQueue,
+        queue: RabbitMQ.CocineroQueue,
       },
     });
   }

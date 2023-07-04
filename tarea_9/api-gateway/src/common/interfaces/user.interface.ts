@@ -1,6 +1,3 @@
-export interface IUser {
-  name: string;
-  username: string;
-  email: string;
-  password: string;
+export interface IIdioma extends Document {
+  descripcion: string;
 }

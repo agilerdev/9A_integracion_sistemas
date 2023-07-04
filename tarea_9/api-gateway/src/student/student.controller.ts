@@ -7,44 +7,45 @@ import {
   Param,
   Post,
   Put,
-  UseGuards,
 } from '@nestjs/common';
-import { StudentMSG } from './../common/constants';
+import { StudentMsg } from './../common/constants';
 import { Observable } from 'rxjs';
 import { StudentDTO } from './dto/student.dto';
 import { ClientProxySuperFlights } from './../common/proxy/client-proxy';
-import { IStudent } from 'src/common/interfaces/student.interface';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { IPaciente } from 'src/common/interfaces/student.interface';
 
 @ApiTags('students')
 // @UseGuards(JwtAuthGuard)
-@Controller('api/v2/student')
+@Controller('api/v2/paciente')
 export class StudentController {
   constructor(private readonly clientProxy: ClientProxySuperFlights) {}
   private _clientProxyStudent = this.clientProxy.clientProxyStudents();
 
   @Post()
-  create(@Body() studentDTO: StudentDTO): Observable<IStudent> {
-    return this._clientProxyStudent.send(StudentMSG.CREATE, studentDTO);
+  create(@Body() studentDTO: StudentDTO): Observable<IPaciente> {
+    return this._clientProxyStudent.send(StudentMsg.CREATE, studentDTO);
   }
 
   @Get()
-  findAll(): Observable<IStudent[]> {
-    return this._clientProxyStudent.send(StudentMSG.FIND_ALL, '');
+  findAll(): Observable<IPaciente[]> {
+    return this._clientProxyStudent.send(StudentMsg.FIND_ALL, '');
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string): Observable<IStudent> {
-    return this._clientProxyStudent.send(StudentMSG.FIND_ONE, id);
+  findOne(@Param('id') id: string): Observable<IPaciente> {
+    return this._clientProxyStudent.send(StudentMsg.FIND_ONE, id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() studentDTO: StudentDTO): Observable<IStudent> {
-    return this._clientProxyStudent.send(StudentMSG.UPDATE, { id, studentDTO });
+  update(
+    @Param('id') id: string,
+    @Body() studentDTO: StudentDTO,
+  ): Observable<IPaciente> {
+    return this._clientProxyStudent.send(StudentMsg.UPDATE, { id, studentDTO });
   }
 
   @Delete(':id')
   delete(@Param('id') id: string): Observable<any> {
-    return this._clientProxyStudent.send(StudentMSG.DELETE, id);
+    return this._clientProxyStudent.send(StudentMsg.DELETE, id);
   }
 }

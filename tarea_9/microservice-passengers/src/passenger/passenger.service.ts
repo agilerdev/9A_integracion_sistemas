@@ -1,30 +1,33 @@
 import { Injectable, HttpStatus } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { IPassenger } from 'src/common/interfaces/passenger.interface';
-import { PASSENGER } from 'src/common/models/models';
-import { PassengerDTO } from './dto/passenger.dto';
+import { IPrestamista } from 'src/common/interfaces/passenger.interface';
+import { PRESTAMISTA } from 'src/common/models/models';
+import { PrestamistaDTO } from './dto/passenger.dto';
 
 @Injectable()
-export class PassengerService {
+export class PrestamistaService {
   constructor(
-    @InjectModel(PASSENGER.name) private readonly model: Model<IPassenger>,
+    @InjectModel(PRESTAMISTA.name) private readonly model: Model<IPrestamista>,
   ) {}
 
-  async create(passengerDTO: PassengerDTO): Promise<IPassenger> {
-    const newPassenger = new this.model(passengerDTO);
-    return await newPassenger.save();
+  async create(prestamistaDTO: PrestamistaDTO): Promise<IPrestamista> {
+    const newPrestamista = new this.model(prestamistaDTO);
+    return await newPrestamista.save();
   }
 
-  async findAll(): Promise<IPassenger[]> {
+  async findAll(): Promise<IPrestamista[]> {
     return await this.model.find();
   }
 
-  async findOne(id: string): Promise<IPassenger> {
+  async findOne(id: string): Promise<IPrestamista> {
     return await this.model.findById(id);
   }
 
-  async update(id: string, passengerDTO: PassengerDTO): Promise<IPassenger> {
+  async update(
+    id: string,
+    passengerDTO: PrestamistaDTO,
+  ): Promise<IPrestamista> {
     return await this.model.findByIdAndUpdate(id, passengerDTO, { new: true });
   }
 

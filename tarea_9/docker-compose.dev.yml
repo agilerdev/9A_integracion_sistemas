@@ -17,11 +17,11 @@ services:
     networks:
       - ms_nestjs
 
-  microservice-flights:
-    image: microservice-flights:v2
-    container_name: microservice-flights
+  microservice-cocineros:
+    image: microservice-cocineros:v2
+    container_name: microservice-cocineros
     build:
-      context: ./microservice-flights
+      context: ./microservice-cocineros
       dockerfile: Dockerfile
     env_file: .env.example
     depends_on:

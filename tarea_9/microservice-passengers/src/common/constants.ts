@@ -1,12 +1,12 @@
 export enum RabbitMQ {
-  PassengerQueue = 'passengers',
+  PrestamistaQueue = 'prestamistas',
 }
 
 
-export enum PassengerMSG {
-  CREATE = 'CREATE_PASSENGER',
-  FIND_ALL = 'FIND_PASSENGERS',
-  FIND_ONE = 'FIND_PASSENGER',
-  UPDATE = 'UPDATE_PASSENGER',
-  DELETE = 'DELETE_PASSENGER',
+export enum PrestamistaMSG {
+  CREATE = 'CREATE_PRESTAMISTAS',
+  FIND_ALL = 'FIND_PRESTAMISTAS',
+  FIND_ONE = 'FIND_PRESTAMISTAS',
+  UPDATE = 'UPDATE_PRESTAMISTAS',
+  DELETE = 'DELETE_PRESTAMISTAS',
 }

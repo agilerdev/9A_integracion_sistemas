@@ -1,35 +1,35 @@
-import { PassengerMSG } from './../common/constants';
+import { PrestamistaMSG } from './../common/constants';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { Body, Controller } from '@nestjs/common';
-import { PassengerService } from './passenger.service';
-import { PassengerDTO } from './dto/passenger.dto';
+import { PrestamistaService } from './passenger.service';
+import { PrestamistaDTO } from './dto/passenger.dto';
 
 @Controller()
-export class PassengerController {
-  constructor(private readonly passengerService: PassengerService) {}
+export class PrestamistaController {
+  constructor(private readonly prestamistaService: PrestamistaService) {}
 
-  @MessagePattern(PassengerMSG.CREATE)
-  create(@Body() passengerDTO: PassengerDTO) {
-    return this.passengerService.create(passengerDTO);
+  @MessagePattern(PrestamistaMSG.CREATE)
+  create(@Body() prestamistaDTO: PrestamistaDTO) {
+    return this.prestamistaService.create(prestamistaDTO);
   }
 
-  @MessagePattern(PassengerMSG.FIND_ALL)
+  @MessagePattern(PrestamistaMSG.FIND_ALL)
   findAll() {
-    return this.passengerService.findAll();
+    return this.prestamistaService.findAll();
   }
 
-  @MessagePattern(PassengerMSG.FIND_ONE)
+  @MessagePattern(PrestamistaMSG.FIND_ONE)
   findOne(@Payload() id: string) {
-    return this.passengerService.findOne(id);
+    return this.prestamistaService.findOne(id);
   }
 
-  @MessagePattern(PassengerMSG.UPDATE)
+  @MessagePattern(PrestamistaMSG.UPDATE)
   update(@Payload() payload) {
-    return this.passengerService.update(payload.id, payload.passengerDTO);
+    return this.prestamistaService.update(payload.id, payload.prestamistaDTO);
   }
 
-  @MessagePattern(PassengerMSG.DELETE)
+  @MessagePattern(PrestamistaMSG.DELETE)
   delete(@Payload() id: string) {
-    return this.passengerService.delete(id);
+    return this.prestamistaService.delete(id);
   }
 }

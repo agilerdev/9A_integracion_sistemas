@@ -1,7 +1,4 @@
-export interface IStudent {
-  identificacion: string;
+export interface IPaciente {
   nombre: string;
-  direccion: string;
-  telefono: string;
-  tipo: string;
+  identificacion: string;
 }

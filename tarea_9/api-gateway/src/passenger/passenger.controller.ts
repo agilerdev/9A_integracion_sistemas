@@ -11,30 +11,27 @@ import { PassengerMSG } from './../common/constants';
 import { PassengerDTO } from './dto/passenger.dto';
 import { Observable } from 'rxjs';
 import { ClientProxySuperFlights } from './../common/proxy/client-proxy';
-import { IPassenger } from 'src/common/interfaces/passenger.interface';
+import { IPrestamista } from 'src/common/interfaces/passenger.interface';
 import { ApiTags } from '@nestjs/swagger';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
-import { UseGuards } from '@nestjs/common';
 
 @ApiTags('passengers')
-@UseGuards(JwtAuthGuard)
-@Controller('api/v2/passenger')
+@Controller('api/v2/prestamista')
 export class PassengerController {
   constructor(private readonly clientProxy: ClientProxySuperFlights) {}
   private _clientProxyPassenger = this.clientProxy.clientProxyPassengers();
 
   @Post()
-  create(@Body() passengerDTO: PassengerDTO): Observable<IPassenger> {
+  create(@Body() passengerDTO: PassengerDTO): Observable<IPrestamista> {
     return this._clientProxyPassenger.send(PassengerMSG.CREATE, passengerDTO);
   }
 
   @Get()
-  findAll(): Observable<IPassenger[]> {
+  findAll(): Observable<IPrestamista[]> {
     return this._clientProxyPassenger.send(PassengerMSG.FIND_ALL, '');
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string): Observable<IPassenger> {
+  findOne(@Param('id') id: string): Observable<IPrestamista> {
     return this._clientProxyPassenger.send(PassengerMSG.FIND_ONE, id);
   }
 
@@ -42,7 +39,7 @@ export class PassengerController {
   update(
     @Param('id') id: string,
     @Body() passengerDTO: PassengerDTO,
-  ): Observable<IPassenger> {
+  ): Observable<IPrestamista> {
     return this._clientProxyPassenger.send(PassengerMSG.UPDATE, {
       id,
       passengerDTO,

@@ -1,4 +1,4 @@
-export interface IPassenger {
-  name: string;
-  email: string;
+export interface IPrestamista {
+  nombre: string;
+  identificacion: string;
 }

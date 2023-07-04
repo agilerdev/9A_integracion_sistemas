@@ -2,7 +2,7 @@ import { ClientProxySuperFlights } from './../common/proxy/client-proxy';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UserDTO } from 'src/user/dto/user.dto';
-import { UserMSG } from 'src/common/constants';
+import { UserMsg } from 'src/common/constants';
 
 @Injectable()
 export class AuthService {
@@ -14,7 +14,7 @@ export class AuthService {
   private _clientProxyUser = this.clientProxy.clientProxyUsers();
   async validateUser(username: string, password: string): Promise<any> {
     const user = await this._clientProxyUser
-      .send(UserMSG.VALID_USER, {
+      .send(UserMsg.VALID_USER, {
         username,
         password,
       })
@@ -36,7 +36,7 @@ export class AuthService {
 
   async signUp(userDTO: UserDTO) {
     return await this._clientProxyUser
-      .send(UserMSG.CREATE, userDTO)
+      .send(UserMsg.CREATE, userDTO)
       .toPromise();
   }
 }

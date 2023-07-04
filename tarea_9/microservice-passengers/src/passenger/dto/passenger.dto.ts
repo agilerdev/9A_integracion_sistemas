@@ -1,4 +1,4 @@
-export class PassengerDTO {
-  readonly name: string;
-  readonly email: string;
+export class PrestamistaDTO {
+  readonly nombre: string;
+  readonly identificacion: string;
 }
